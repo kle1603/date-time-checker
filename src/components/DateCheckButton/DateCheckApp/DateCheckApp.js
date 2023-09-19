@@ -11,9 +11,14 @@ function DateCheckApp({ visible, setVisible }) {
     const [day, setDay] = useState("");
     const [month, setMonth] = useState("");
     const [year, setYear] = useState("");
+    const [detail, setDetail] = useState(false);
 
     const handleClick = () => {
-        setVisible(false);
+        setVisible(!visible);
+    };
+
+    const handleDetail = () => {
+        setDetail(!detail);
     };
 
     const handleClear = () => {
@@ -27,7 +32,7 @@ function DateCheckApp({ visible, setVisible }) {
             <div className={cx("wrapper")}>
                 <div className={cx("top")}>
                     <div className={cx("top-logo")}></div>
-                    <div className={cx("close-btn")} onClick={handleClick}>
+                    <div className={cx("close-btn")} onClick={handleDetail}>
                         <FontAwesomeIcon
                             className={cx("close")}
                             icon={faXmark}
@@ -73,6 +78,43 @@ function DateCheckApp({ visible, setVisible }) {
                     </div>
                 </div>
             </div>
+            {detail ? (
+                <div className={cx("detail")}>
+                    <div className={cx("detail-wrapper")}>
+                        <div className={cx("detail-header")}>
+                            <h2 className={cx("detail-header-title")}>
+                                Confirm
+                            </h2>
+                            <FontAwesomeIcon
+                                className={cx("detail-icon")}
+                                icon={faXmark}
+                                onClick={handleDetail}
+                            />
+                        </div>
+                        <div className={cx("detail-content")}>
+                            <h2 className={cx("detail-content-title")}>
+                                Do you want to exit !
+                            </h2>
+                            <div className={cx("detail-button")}>
+                                <button
+                                    className={cx("button-close")}
+                                    onClick={handleClick}
+                                >
+                                    Ok
+                                </button>
+                                <button
+                                    className={cx("button-cancel")}
+                                    onClick={handleDetail}
+                                >
+                                    Cancel
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            ) : (
+                ""
+            )}
         </div>
     );
 }

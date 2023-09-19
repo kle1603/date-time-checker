@@ -1,5 +1,5 @@
 .background {
-    position: absolute;
+    position: fixed;
     top: 0;
     bottom: 0;
     left: 0;
@@ -98,6 +98,106 @@
 
             &:hover {
                 background-color: rgb(178, 178, 178);
+            }
+        }
+    }
+}
+
+.detail {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(67, 67, 67, 0.2);
+
+    .detail-wrapper {
+        width: 250px;
+        height: 150px;
+        background-color: rgb(145, 145, 145);
+        border-radius: 10px;
+        overflow: hidden;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .detail-header {
+        width: 100%;
+        background-color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .detail-icon {
+            padding: 5px;
+            width: 18px;
+            height: 18px;
+            transition: all 0.3s ease-in-out;
+
+            &:hover {
+                color: rgb(180, 55, 55);
+            }
+        }
+
+        .detail-header-title {
+            padding: 5px;
+            font-size: 1.4rem;
+        }
+    }
+
+    .detail-content {
+        width: 100%;
+        height: calc(100% - 28px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        .detail-content-title {
+            width: 100%;
+            text-align: center;
+            font-size: 1.6rem;
+        }
+
+        .detail-button {
+            padding-top: 20px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            column-gap: 30px;
+
+            .button-close,
+            .button-cancel {
+                padding: 10px;
+                min-width: 70px;
+                border-radius: 10px;
+                font-size: 1.4rem;
+            }
+
+            .button-close {
+                background-color: rgb(0, 136, 220);
+                color: white;
+                transition: all 0.3s ease-in-out;
+
+                &:hover {
+                    background-color: rgb(0, 114, 184);
+                }
+            }
+
+            .button-cancel {
+                background-color: rgb(202, 80, 80);
+                color: white;
+                transition: all 0.3s ease-in-out;
+
+                &:hover {
+                    background-color: rgb(171, 62, 62);
+                }
             }
         }
     }
